@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Serilog.Sinks.SentryIO</id>
+    <version>$version$</version>
+    <authors>czesiu</authors>
+    <description>Serilog event sink that writes to the sentry.io service.</description>
+    <language>en-US</language>
+    <projectUrl>http://serilog.net</projectUrl>
+    <iconUrl>http://serilog.net/images/serilog-sink-nuget.png</iconUrl>
+    <tags>serilog logging sentry sentry.io error</tags>
+    <dependencies>
+      <dependency id="Serilog" version="[2,3)" />
+      <dependency id="SharpRaven" version="2.2.0" />
+    </dependencies>
+  </metadata>
+</package>
