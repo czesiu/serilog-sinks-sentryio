@@ -15,4 +15,5 @@ The sink can be configured in XML [app-settings format](https://github.com/seril
 ```xml
 <add key="serilog:using:SentryIO" value="Serilog.Sinks.SentryIO" />
 <add key="serilog:write-to:SentryIO.dsn" value="{dsn-from-sentry-io-website}" />
+<add key="serilog:write-to:SentryIO.release" value="1.7.3" /> (optional)
 ```
