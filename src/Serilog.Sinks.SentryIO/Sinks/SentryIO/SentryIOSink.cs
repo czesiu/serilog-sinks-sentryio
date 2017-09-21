@@ -53,7 +53,7 @@ namespace Serilog.Sinks.SentryIO
             {
                 Level = LevelToSeverity(logEvent),
                 Message = GetSentryMessage(logEvent, logEvent.Properties, _formatProvider),
-                Tags = PropertiesToData(logEvent).ToDictionary(k => k.Key, v => v.Value.ToString()),
+                Tags = PropertiesToData(logEvent).ToDictionary(k => k.Key, v => v.Value?.ToString()),
                 Extra = PropertiesToDataWithException(logEvent)
             };
 
