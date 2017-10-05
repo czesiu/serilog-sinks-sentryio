@@ -17,6 +17,7 @@ namespace Serilog
         /// <param name="dsn">The DSN as found on the sentry.io website.</param>
         /// <param name="release">Version of application release.</param>
         /// <param name="exceptionsToGroupByMessage">List of exception types which should be grouped by message.</param>
+        /// <param name="environment">The application environment for the tracking inside Sentry.</param>
         /// <param name="restrictedToMinimumLevel">The minimum log event level required in order to write an event to the sink. Set to Warning by default.</param>
         /// <param name="formatProvider">Supplies culture-specific formatting information, or null.</param>
         /// <returns>Logger configuration, allowing configuration to continue.</returns>
@@ -26,13 +27,14 @@ namespace Serilog
             string dsn,
             string release = "",
             string exceptionsToGroupByMessage = "",
+            string environment = "",
             LogEventLevel restrictedToMinimumLevel = LogEventLevel.Warning,
             IFormatProvider formatProvider = null)
         {
             if (loggerConfiguration == null) throw new ArgumentNullException(nameof(loggerConfiguration));
 
             return loggerConfiguration.Sink(
-                new SentryIOSink(formatProvider, dsn, release, exceptionsToGroupByMessage),
+                new SentryIOSink(formatProvider, dsn, release, exceptionsToGroupByMessage, environment),
                 restrictedToMinimumLevel);
         }
     }

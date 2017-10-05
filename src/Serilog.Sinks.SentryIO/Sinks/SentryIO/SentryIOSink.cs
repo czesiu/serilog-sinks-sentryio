@@ -24,10 +24,10 @@ namespace Serilog.Sinks.SentryIO
         /// </summary>
         /// <param name="formatProvider">Supplies culture-specific formatting information, or null.</param>
         /// <param name="dsn">The DSN as found on the sentry.io website.</param>
-        public SentryIOSink(IFormatProvider formatProvider, string dsn, string release = "", string exceptionsToGroupByMessage = "")
+        public SentryIOSink(IFormatProvider formatProvider, string dsn, string release = "", string exceptionsToGroupByMessage = "", string environment = "")
         {
             _formatProvider = formatProvider;
-            _logger = new RavenClient(dsn) { Release = release };
+            _logger = new RavenClient(dsn) { Release = release, Environment = environment };
             _exceptionsToGroupByMessage = exceptionsToGroupByMessage.Split(new [] { ',' }, StringSplitOptions.RemoveEmptyEntries);
         }
 
